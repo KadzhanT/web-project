@@ -1,10 +1,15 @@
+from gc import get_objects
 from django.shortcuts import render
 
 from goods.models import Products
 
 
-def catolog(request):
-    goods = Products.objects.all()
+def catolog(request, category_slug):
+    if category_slug == 'all':
+        goods = Products.objects.all()
+    else:
+        goods = Products.objects.filter(category__slug=category_slug)
+        
 
     context = {
         "title": "Home - Каталог",
