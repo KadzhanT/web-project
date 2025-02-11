@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls', namespace='main')),
     path('catolog/', include('goods.urls', namespace='catolog')), 
+    path('user/', include('users.urls', namespace='user')), 
 ] 
 if settings.DEBUG:
     urlpatterns += debug_toolbar_urls()
